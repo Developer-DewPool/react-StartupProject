@@ -11,11 +11,15 @@ function Nav(){
     return(
         <nav>
             <Link style={navStyle} to='/'>
-            <h2>
+            {/* <h3>
                 Logo
-            </h2>
+            </h3> */}
+            <img src="http://www.thedemocompany.com/wp-content/uploads/2017/03/asset-32.png" alt="logo" width="80" height="80"></img>
             </Link>
             <ul className="nav-links">
+                <Link style={navStyle} to='/'>
+                <li>Home</li>
+                </Link>
                 <Link style={navStyle} to='/inputdetials'>
                 <li>InputDetials</li>
                 </Link>
@@ -24,6 +28,9 @@ function Nav(){
                 </Link>
                 <Link style={navStyle} to='/shop'>
                 <li>Shop</li>
+                </Link>
+                <Link style={navStyle} to='/products'>
+                <li>All Products</li>
                 </Link>
             </ul>
         </nav>
