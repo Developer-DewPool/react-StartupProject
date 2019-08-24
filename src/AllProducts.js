@@ -44,7 +44,6 @@ function AllProducts(){
     console.log(allproducts.data)
   }
 
-  
     return(
         <div>
             {items.map(item => (

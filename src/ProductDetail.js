@@ -6,7 +6,7 @@ function ProductDetail({ match }){
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [])
     
     const [item, setItem] = useState({}); 
     const moltin_token = localStorage.getItem('access_token')
@@ -21,18 +21,15 @@ function ProductDetail({ match }){
       const product = await fetchProduct.json();
     console.log(product.data);
     setItem(product.data)
- 
     }
     return(
         <div>
             <h2>{item.name}</h2>
             <p>
                 {item.product_description_en}
-                {item.product_image}
             </p>
-            {/* <img src={item.product_image} alt='' /> */}
         </div>
-    );
+    )
 }
 
 
