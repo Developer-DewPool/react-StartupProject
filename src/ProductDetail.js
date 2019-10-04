@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
-import AllProducts from './AllProducts'
+let access = require("./access.js")
 
 function ProductDetail({ match }){
-
+    
     useEffect(() => {
         fetchProduct();
-    }, [])
+    })
     
     const [item, setItem] = useState({}); 
-    const moltin_token = localStorage.getItem('access_token')
-    const fetchProduct = async () => {
 
+    const fetchProduct = async () => {
+    const moltin_token = await access.Access()
     const fetchProduct = await fetch(`https://api.moltin.com/v2/products/${match.params.id}`, {
         method: 'GET',
         headers:{
@@ -19,7 +19,7 @@ function ProductDetail({ match }){
               },
       })
       const product = await fetchProduct.json();
-    console.log(product.data);
+    // console.log(product.data);
     setItem(product.data)
     }
     return(
@@ -28,7 +28,10 @@ function ProductDetail({ match }){
             <p>
                 {item.product_description_en}
             </p>
+
+
         </div>
+        
     )
 }
 
